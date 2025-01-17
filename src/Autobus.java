@@ -68,17 +68,37 @@ public class Autobus {
         return false;
     }
 
-
     public int NumeroPostiLiberi(){
         int Numero = 0;
         for(int i=0;i<NumPosti;i++){
-            if(!posti[i].isOccupato() && !posti[i].isPrenotato()){
+            if(!posti[i].isOccupato() || !posti[i].isPrenotato()){
                 Numero++;
             }
         }
         return Numero;
 
 
+    }
+
+    public int NumeroPostiOccupati(){
+        int numero = 0;
+        for(int i = 0;i< posti.length;i++){
+            if(posti[i].isOccupato()){
+                numero++;
+
+            }
+        }
+        return numero;
+    }
+
+    public int NumeroPostiPrenotati(){
+        int numero=0;
+        for(int i=0;i<posti.length;i++){
+            if(posti[i].isPrenotato()){
+                numero++;
+            }
+        }
+        return numero;
     }
 
     public void Menu(){
